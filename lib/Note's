@@ -1,0 +1,49 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+class Option extends StatefulWidget {
+
+
+  @override
+  State<Option> createState() => _OptionState();
+}
+
+class _OptionState extends State<Option> {
+  List posts=[];
+
+  Future getPost() async{
+    var url="https://jsonplaceholder.typicode.com/posts";
+
+    var response=await http.get(Uri.parse(url));
+
+    var responsebody=jsonDecode(response.body);
+
+    setState(() {
+      posts.addAll(responsebody);
+    });
+  }
+  @override
+  void initState() {
+    getPost();
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Albums"),
+      ),
+      body:
+          posts==null || posts.isEmpty ?
+              Center(child: CircularProgressIndicator(),)
+        : ListView.builder(
+        itemCount: posts.length,
+          itemBuilder: (context,i){
+          return Text("${posts[i]["title"]}");
+          }),
+
+
+    );
+  }
+}
