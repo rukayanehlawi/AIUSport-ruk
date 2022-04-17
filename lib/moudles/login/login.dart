@@ -7,7 +7,7 @@ import 'package:aiusport/widget/roundedbutton.dart';
 import 'package:aiusport/widget/textinpute.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../constant.dart';
+import '../../constants.dart';
 import '../../widget/background_image.dart';
 import 'package:http/http.dart' as http;
 

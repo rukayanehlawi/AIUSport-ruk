@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Center(
       child:Scaffold(
         appBar: AppBar(
-          title: Text("AIU Sport"),
+          title: const Text("AIU Sport"),
           automaticallyImplyLeading: false,
           actions: [
             IconButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Option())), icon: Icon(Icons.menu,color: Colors.black,))

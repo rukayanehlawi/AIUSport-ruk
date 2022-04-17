@@ -1,4 +1,4 @@
-import 'package:aiusport/constant.dart';
+import 'package:aiusport/constants.dart';
 import 'package:flutter/material.dart';
 String email="";
 final _controller1=TextEditingController();
@@ -8,7 +8,6 @@ class TextInput extends StatelessWidget {
   final String hint;
   final TextInputType inputType;
   final TextInputAction inputAction;
-
 
 
   TextInput({Key? key,

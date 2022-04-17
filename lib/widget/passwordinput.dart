@@ -1,6 +1,6 @@
 import 'package:aiusport/widget/widget.dart';
 import 'package:flutter/material.dart';
-import '../constant.dart';
+import '../constants.dart';
 
 String password="";
 final _controller2=TextEditingController();
