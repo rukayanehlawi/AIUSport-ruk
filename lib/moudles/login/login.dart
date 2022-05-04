@@ -1,39 +1,40 @@
 import 'dart:convert';
-
 import 'package:aiusport/moudles/nav.dart';
 import 'package:aiusport/services/auth_services.dart';
 import 'package:aiusport/widget/passwordinput.dart';
 import 'package:aiusport/widget/roundedbutton.dart';
 import 'package:aiusport/widget/textinpute.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../constant.dart';
 import '../../widget/background_image.dart';
 import 'package:http/http.dart' as http;
 
-import '../homescreen.dart';
 class Login_Screen extends StatelessWidget {
   final t=title;
   String _email=contr();
   String _password=contr2();
 
-  loginPressed()async{
-    print(contr());
-    print(contr2());
-    // if(this._email.isNotEmpty && this._password.isNotEmpty){
-    //   http.Response response = await AuthServices.login(_email, _password);
-    //   print(response);
-    //   Map responsMap = jsonDecode(response.body);
-    //   if(response.statusCode==200){
-    //     print("Okkkkkkk");
-    //
-    //   }
-    //   else {
-    //     print("nottttttttt");
-    //   }
-    // }
+  // loginPressed()async{
+  //   print(contr());
+  //   print(contr2());
+  //   // if(this._email.isNotEmpty && this._password.isNotEmpty){
+  //   //   http.Response response = await AuthServices.login(_email, _password);
+  //   //   print(response);
+  //   //   Map responsMap = jsonDecode(response.body);
+  //   //   if(response.statusCode==200){
+  //   //     print("Okkkkkkk");
+  //   //
+  //   //   }
+  //   //   else {
+  //   //     print("nottttttttt");
+  //   //   }
+  //   // }
+  //
+  // }
 
-  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -84,13 +85,13 @@ class Login_Screen extends StatelessWidget {
                               'Forgot Password ?',style: kBodytext,),
                             SizedBox(
                               height:100,),
-                            RoundedButton(onBtnPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Nav())),
+                            RoundedButton(onBtnPressed: ()=>Get.to(Nav()),
+                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>Nav())),
                                 title: 'Login'),
                             SizedBox(
                               height:100,),
                             GestureDetector(
                               onTap: (){
-
                               },
                               child: const Text("Wrong Email or Password",
                                 style: TextStyle(

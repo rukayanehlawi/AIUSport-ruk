@@ -1,5 +1,8 @@
+import 'package:aiusport/moudles/homescreen.dart';
+import 'package:aiusport/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'moudles/login/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,9 +15,9 @@ class AiuSport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
+    return GetMaterialApp(
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: GoogleFonts.josefinSansTextTheme(Theme.of(context).textTheme),
         primaryColor: Colors.white ,
@@ -24,18 +27,17 @@ class AiuSport extends StatelessWidget {
           color: Colors.white,
           backwardsCompatibility: false,
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.white,
-
+            statusBarColor: Colors.black,
           ),
           titleTextStyle: TextStyle(
-            color: Colors.black,
+            color: Colors.blueAccent,
             fontSize: 20.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
           ),
           elevation: 0.0,
         ),
       ),
-      home: Login_Screen(),
+
     );
   }
 }
