@@ -13,13 +13,27 @@ class CreateTeam extends StatelessWidget{
        backgroundColor: Colors.indigo[100],
        drawer: Option(),
        appBar: AppBar(
-         title: const Text("Create team"),
+         title: const Text("join a team"),
          centerTitle: true,
-         backgroundColor: Color(0xFF1a237e),
-          actions: [
-            IconButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Option())), icon: Icon(Icons.arrow_back,color: Colors.black,)),
-                
-          ]),
+         backgroundColor: const Color(0xFF1a237e),
+         actions: [
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: InkWell(
+               onTap:(){
+                 {
+                  Navigator.of(context).push(MaterialPageRoute(builder: 
+                  (context)=>(Option())));};
+               },
+               child: const Icon(
+                   Icons.arrow_forward
+               ),
+             ),
+           )
+         ],
+       ),
+        
+          
                
              ),
            );
