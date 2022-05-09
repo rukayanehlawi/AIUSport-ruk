@@ -36,7 +36,7 @@ Widget build(BuildContext context) {
       child: _widgetOptions.elementAt(_selectedIndex),
     ),
     bottomNavigationBar: ConvexAppBar(
-        items: [
+        items: const [
           TabItem(icon: Icon(Icons.home),title: "home"),
           TabItem(icon: Icon(Icons.sports),title: "Coachs"),
           TabItem(icon: Icon(Icons.sports_basketball),title: "Staduim"),
@@ -45,9 +45,10 @@ Widget build(BuildContext context) {
     ],
             initialActiveIndex: _selectedIndex,
       onTap: _onItemTap,
-      backgroundColor: Colors.white,
+      backgroundColor:Theme.of(context).iconTheme.color,
       activeColor: Colorblue,
-      color: Colors.black38,
+      //color: Color.fromARGB(95, 0, 0, 0),
+      color:Theme.of(context).primaryColor,
     ),
   );
 }

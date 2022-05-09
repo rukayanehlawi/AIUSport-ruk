@@ -21,7 +21,9 @@ class _CoachScreenState extends State<CoachScreen> {
           title: Text("Coach"),
           automaticallyImplyLeading: false,
           actions: [
-            IconButton(onPressed: ()=>Get.to(Option()), icon: Icon(Icons.menu,color: Colors.black,))
+            IconButton(onPressed: ()=>Get.to(Option()), 
+            icon: Icon(Icons.menu,
+            color: Theme.of(context).primaryColor,))
           ],
         ),
 

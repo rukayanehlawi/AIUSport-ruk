@@ -1,11 +1,11 @@
-import 'package:aiusport/globals.dart';
+import 'package:aiusport/moudles/option/option.dart';
+import 'package:aiusport/moudles/user.dart';
+import 'package:aiusport/utils/user_preferences.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:aiusport/utils/custom_clipper.dart';
 
-import 'package:aiusport/widget/profile_widgets/top_bar.dart';
 
-import '../../utils/custom_clipper..dart';
 
 class StackContainer extends StatelessWidget {
   const StackContainer({
@@ -23,10 +23,10 @@ class StackContainer extends StatelessWidget {
             child: Container(
               height: 500.0,
               decoration: BoxDecoration(
-                color: const Color(0xff7c94b6),
+                color: Colors.transparent,
                 image:  DecorationImage(
                   fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(Colors.blue.withOpacity(0.6), BlendMode.dstATop),
+                  colorFilter: ColorFilter.mode(Colors.blue.withOpacity(0.7), BlendMode.dstATop),
                   image: new AssetImage(   'assets/background2.jpg',
                   ),
                 ),
@@ -39,9 +39,10 @@ class StackContainer extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[ SizedBox(height: 62,),
                 CircleAvatar(
-                  radius:80, backgroundColor: Color.fromARGB(255, 246, 248, 248),
+                  radius:80, backgroundColor: Theme.of(context).iconTheme.color,
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/sarah.png'),
+                    //backgroundImage: AssetImage(UserPreferences.myUser.profileimg),
+                    backgroundImage: AssetImage('assets/images/sarah.png'),
                     radius: 77,
                   ),
                 ),
@@ -52,7 +53,7 @@ class StackContainer extends StatelessWidget {
                   children: <Widget>[
                     // Stroked text as border.
                     Text(
-                      username,
+                      UserPreferences.myUser.username,
                       style: TextStyle(
                         fontSize: 40,
                         foreground: Paint()
@@ -63,7 +64,7 @@ class StackContainer extends StatelessWidget {
                     ),
                     // Solid text as fill.
                     Text(
-                      username,
+                      UserPreferences.myUser.username,
                       style: TextStyle(
                         fontSize: 40,fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 13, 19, 107),
@@ -83,7 +84,7 @@ class StackContainer extends StatelessWidget {
                   children: <Widget>[
                     // Stroked text as border.
                     Text(
-                      info,
+                      UserPreferences.myUser.info,
                       style: TextStyle(
                         fontSize: 24,
                         foreground: Paint()
@@ -94,7 +95,7 @@ class StackContainer extends StatelessWidget {
                     ),
                     // Solid text as fill.
                     Text(
-                      info,
+                      UserPreferences.myUser.info,
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -110,7 +111,8 @@ class StackContainer extends StatelessWidget {
               ],
             ),
           ),
-          TopBar(),
+          
+          
         ],
       ),
     );

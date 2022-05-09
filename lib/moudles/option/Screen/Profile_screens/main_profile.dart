@@ -1,6 +1,7 @@
 
 import 'package:aiusport/moudles/option/Screen/Profile_screens/your_exercises.dart';
 import 'package:aiusport/moudles/option/Screen/Profile_screens/your_matches.dart';
+import 'package:aiusport/moudles/option/option.dart';
 
 import 'package:aiusport/widget/profile_widgets/info_card.dart';
 import 'package:aiusport/widget/profile_widgets/stack_container.dart';
@@ -9,6 +10,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
+
+import '../../../../widget/profile_widgets/top_bar.dart';
 
 
 
@@ -40,8 +43,11 @@ class _ProfilePageState extends State<ProfilePage> {
           builder: (context,constraint){
             return SingleChildScrollView(
 
-              child: Column(
-                children: <Widget>[
+               child: Column(
+            children: <Widget>[
+        const TopBar(appbartitle: 'Your profile', 
+        barnextsceen: Option(),
+         baricon: Icons.arrow_back, ),
                   StackContainer(),
 
                   Padding(
@@ -199,7 +205,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       width: constraint.maxWidth / 1.1,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(18.0),
-                                        color: Color.fromARGB(255, 255, 255, 255),
+                                        color: Theme.of(context).primaryColor,
                                       ),
                                       child: Row(
                                         children: const [

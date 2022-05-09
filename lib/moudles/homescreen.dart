@@ -3,9 +3,12 @@ import 'package:aiusport/moudles/class_home/verticalcategory.dart';
 import 'package:aiusport/moudles/option/option.dart';
 import 'package:aiusport/widget/horizontalcardcategory.dart';
 import 'package:aiusport/widget/verticalcardcategory.dart';
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+
+import '../widget/changethemebutton.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,17 +22,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Scaffold(
+    return Center(  
+      child: Scaffold( 
+        backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
           title: Text("AIU Sport"),
-          automaticallyImplyLeading: false,
+          titleTextStyle: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+            
+          //automaticallyImplyLeading: false,
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
           actions: [
+            
+            ChangeThemeButtonWidget(),
+
             IconButton(
                 onPressed: () => Get.to(Option()),
                 icon: Icon(
                   Icons.menu,
-                  color: Colors.black,
+                  color: Theme.of(context).iconTheme.color,
                 ))
           ],
         ),
@@ -41,8 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Offer's today",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  "Offers today",
+                  style: TextStyle(
+                    color:Theme.of(context).iconTheme.color,
+                    fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(
@@ -67,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Center(
                   child: Text(
                     "News today",
-                    style: TextStyle(
+                    style: TextStyle(color:Theme.of(context).iconTheme.color,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
