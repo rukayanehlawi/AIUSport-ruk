@@ -1,8 +1,12 @@
 import 'package:aiusport/constant.dart';
 import 'package:aiusport/moudles/option/Screen/create_a_team/players_name.dart';
+import 'package:aiusport/widget/profile_widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../../widget/changethemebutton.dart';
+import '../../option.dart';
 
 final TeamName = TextEditingController();
 
@@ -28,8 +32,27 @@ class _CreateAteamState extends State<CreateAteam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF7F7F7),
+      backgroundColor: Theme.of(context).primaryColor,
+appBar: AppBar(
+          title: Text("Create a team"),
+          titleTextStyle: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
+          actions: [
+
+            IconButton(
+                onPressed: () => Get.to(Option()),
+                icon: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).iconTheme.color,
+                ))
+          ],
+        ),
       body: SingleChildScrollView(
+        
         physics: NeverScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -38,16 +61,16 @@ class _CreateAteamState extends State<CreateAteam> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 200,
+                SizedBox(width: 200,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 100.0, left: 20),
+                    padding: const EdgeInsets.only(top: 0.1, left: 20),
                     child: TextFormField(
                       controller: TeamName,
                       decoration: InputDecoration(
                         hintText: "Team Name",
+                        hintStyle: TextStyle(fontSize: 19, color: Theme.of(context).secondaryHeaderColor),
                         hoverColor: Colorblue,
-                        suffixIcon: Icon(Icons.drive_file_rename_outline),
+                        suffixIcon: Icon(Icons.drive_file_rename_outline,color: Colors.blueAccent),
                       ),
                     ),
                   ),
@@ -55,13 +78,14 @@ class _CreateAteamState extends State<CreateAteam> {
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(top: 100.0, left: 20, right: 10),
-                    child: DropdownButton(
+                        const EdgeInsets.only(top: 0.5, left: 20, right: 10),
+                    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
                         isExpanded: true,
                         iconSize: 36,
                         iconEnabledColor: Colors.blue,
                         value: Value,
                         hint: Text("Plane"),
+
                         items: [
                           DropdownMenuItem(
                             child: Text("Plane 1"),
@@ -85,7 +109,7 @@ class _CreateAteamState extends State<CreateAteam> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+                  const EdgeInsets.only(top: 7.0, left: 20.0, right: 20.0),
               child: Container(
                 height: 500,
                 decoration: BoxDecoration(
@@ -98,18 +122,19 @@ class _CreateAteamState extends State<CreateAteam> {
                               image: AssetImage("assets/Staduim_plane2.jpg")),
                 ),
               ),
-            ),
-            InkWell(
+            ),Padding(
+              padding:const EdgeInsets.only(top: 9.0, left: 20.0, right: 20.0),
+            child:InkWell(
               onTap: () {
 
                   Get.to(PlayersName(plane: getValue()!, teamName: TeamName.text));
 
               },
               child: Container(
-                height: 80,
+                height: 60,
                 width: 200,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(color: Darkblue),
                     boxShadow: [
@@ -123,6 +148,7 @@ class _CreateAteamState extends State<CreateAteam> {
                   child: Text(
                     "Next",
                     style: GoogleFonts.roboto(
+                      color: Theme.of(context).secondaryHeaderColor,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -130,7 +156,7 @@ class _CreateAteamState extends State<CreateAteam> {
                 ),
               ),
             ),
-          ],
+         ) ],
         ),
       ),
     );

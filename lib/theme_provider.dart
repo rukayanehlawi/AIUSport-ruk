@@ -25,6 +25,8 @@ class MyThemes {
   static final darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.grey.shade900,
     primaryColor: Colors.black,
+    secondaryHeaderColor: Colors.white,
+    selectedRowColor:Color.fromARGB(255, 204, 207, 13),
     colorScheme: ColorScheme.dark(),
     iconTheme: IconThemeData(color: Color.fromARGB(255, 51, 29, 151), opacity: 0.8),
   );
@@ -32,6 +34,8 @@ class MyThemes {
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primaryColor: Colors.white,
+    selectedRowColor:Color.fromARGB(255, 236, 139, 47) ,
+        secondaryHeaderColor: Colors.black,
     colorScheme: ColorScheme.light(),
     
     iconTheme: IconThemeData(color: Color.fromARGB(255, 21, 145, 187), opacity: 0.8),

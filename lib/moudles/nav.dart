@@ -1,10 +1,12 @@
 
 import 'package:aiusport/constant.dart';
+import 'package:aiusport/moudles/option/Screen/Profile_screens/your_matches.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:aiusport/screens/Subscribe_Screen/subscribe_screen.dart';
 import 'package:aiusport/screens/coachscreen/coach_Screen.dart';
 import 'package:aiusport/moudles/homescreen.dart';
 import 'package:flutter/material.dart';
+import 'package:aiusport/screens/matches_scores2/matches_scoreboard2.dart';
 
 
 
@@ -20,6 +22,7 @@ List<Widget> _widgetOptions=<Widget>[
   HomeScreen(),
   CoachScreen(),
   SubsribeScreen(),
+  MatchesScreen(),
   Text("Boot")
 ];
 
@@ -37,9 +40,10 @@ Widget build(BuildContext context) {
     ),
     bottomNavigationBar: ConvexAppBar(
         items: const [
-          TabItem(icon: Icon(Icons.home),title: "home"),
+          TabItem(icon: Icon(Icons.home),title: "Home"),
           TabItem(icon: Icon(Icons.sports),title: "Coachs"),
           TabItem(icon: Icon(Icons.sports_basketball),title: "Staduim"),
+          TabItem(icon: Icon(Icons.flag),title: "Matches"),
           TabItem(icon: Icon(Icons.android),title: "Boot"),
 
     ],

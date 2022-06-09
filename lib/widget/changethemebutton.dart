@@ -10,7 +10,7 @@ class ChangeThemeButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
-    return Switcher(
+    return  Transform.scale(scale: 0.7,child:Switcher(
       value: themeProvider.isDarkMode,
      
      size: SwitcherSize.medium,
@@ -26,6 +26,6 @@ class ChangeThemeButtonWidget extends StatelessWidget {
           context, listen: false);
         provider.toggleTheme(value);
       },
-    );
+    ));
   }
 }

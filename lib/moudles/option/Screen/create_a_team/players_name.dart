@@ -6,6 +6,8 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../option.dart';
+
 final player1 = TextEditingController();
 final player2 = TextEditingController();
 final player3 = TextEditingController();
@@ -22,10 +24,14 @@ final postion6 = TextEditingController();
 bool isAccept=false;
 
 class PlayersName extends StatefulWidget {
+
+  //final String position;
   final String plane;
   final String teamName;
 
-  const PlayersName({Key? key, required this.plane, required this.teamName})
+  const PlayersName({Key? key, required this.plane,
+  //required this.position, 
+  required this.teamName})
       : super(key: key);
 
   @override
@@ -33,20 +39,45 @@ class PlayersName extends StatefulWidget {
 }
 
 class _PlayersNameState extends State<PlayersName> {
+ String? Value;
+
+  void setValue(value) {
+    Value = value;
+  }
+
+  String? getValue() {
+    return Value;
+  }
+final dropdownValue='1';
   SqlDb sqlDb = SqlDb();
   List<Map> ? response;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create a team"),
-        automaticallyImplyLeading: false,
-      ),
+          title: Text("Create a team"),
+          titleTextStyle: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+            
+          //automaticallyImplyLeading: false,
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
+          actions: [
+            IconButton(
+                onPressed: () => Get.to(Option()),
+                icon: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).iconTheme.color,
+                ))
+          ],
+        ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 240,
+              height: 225,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: widget.plane == "Plane2"
@@ -75,21 +106,49 @@ class _PlayersNameState extends State<PlayersName> {
                               child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Text(
-                              "From 1 - 6",
-                              style: TextStyle(color: Darkblue),
+                          "From 1 - 6 :",
+                              style: TextStyle(color: Colors.blueAccent, fontSize: 14),
                             ),
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                controller: postion1,
-                                decoration: InputDecoration(
-                                  hintText: "Type Number from 1 to 6",
-                                ),
-                              ),
-                            ),
+                           Expanded(
+    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
+                        isExpanded: true,
+                        iconSize: 36,
+                        iconEnabledColor: Colors.blue,
+                        value: Value,
+                        hint: Text("1"),
+
+                        items: [
+                          DropdownMenuItem(
+                            child: Text(" 1"),
+                            value: "1",
+                          ),
+                          DropdownMenuItem(
+                            child: Text(" 2"),
+                            value: "2",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 3"),
+                            value: "3",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 4"),
+                            value: "4",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 5"),
+                            value: "5",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 6"),
+                            value: "6",
+                          ),
+                        ],
+                        onChanged: (String? value) => setState(() {
+                              setValue(value);
+                              print(getValue());
+                            }), 
+                            )
                           ),
                         ],
                       ),
@@ -115,22 +174,51 @@ class _PlayersNameState extends State<PlayersName> {
                               child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Text(
-                              "From 1 - 6",
-                              style: TextStyle(color: Darkblue),
+                             "From 1 - 6 :",
+                              style: TextStyle(color: Colors.blueAccent, fontSize: 14),
                             ),
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                controller: postion2,
-                                decoration: InputDecoration(
-                                  hintText: "Type Number from 1 to 6",
-                                ),
-                              ),
-                            ),
+                           Expanded(
+    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
+                        isExpanded: true,
+                        iconSize: 36,
+                        iconEnabledColor: Colors.blue,
+                        value: Value,
+                        hint: Text("1"),
+
+                        items: [
+                          DropdownMenuItem(
+                            child: Text(" 1"),
+                            value: "1",
                           ),
+                          DropdownMenuItem(
+                            child: Text(" 2"),
+                            value: "2",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 3"),
+                            value: "3",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 4"),
+                            value: "4",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 5"),
+                            value: "5",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 6"),
+                            value: "6",
+                          ),
+                        ],
+                        onChanged: (String? value) => setState(() {
+                              setValue(value);
+                              print(getValue());
+                            }), 
+                            )
+                            ),
+                          
                         ],
                       ),
                     ],
@@ -159,22 +247,50 @@ class _PlayersNameState extends State<PlayersName> {
                               child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Text(
-                              "From 1 - 6",
-                              style: TextStyle(color: Darkblue),
+                              "From 1 - 6 :",
+                              style: TextStyle(color: Colors.blueAccent, fontSize: 14),
                             ),
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                controller: postion3,
-                                decoration: InputDecoration(
-                                  hintText: "Type Number from 1 to 6",
-                                ),
-                              ),
-                            ),
+                           Expanded(
+    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
+                        isExpanded: true,
+                        iconSize: 36,
+                        iconEnabledColor: Colors.blue,
+                        value: Value,
+                        hint: Text("1"),
+
+                        items: [
+                          DropdownMenuItem(
+                            child: Text(" 1"),
+                            value: "1",
                           ),
+                          DropdownMenuItem(
+                            child: Text(" 2"),
+                            value: "2",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 3"),
+                            value: "3",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 4"),
+                            value: "4",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 5"),
+                            value: "5",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 6"),
+                            value: "6",
+                          ),
+                        ],
+                        onChanged: (String? value) => setState(() {
+                              setValue(value);
+                              print(getValue());
+                            }), 
+                            )),
+                        
                         ],
                       ),
                     ],
@@ -199,22 +315,51 @@ class _PlayersNameState extends State<PlayersName> {
                               child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Text(
-                              "From 1 - 6",
-                              style: TextStyle(color: Darkblue),
+                          "From 1 - 6 :",
+                              style: TextStyle(color: Colors.blueAccent, fontSize: 14),
                             ),
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                controller: postion4,
-                                decoration: InputDecoration(
-                                  hintText: "Type Number from 1 to 6",
-                                ),
-                              ),
-                            ),
+                           Expanded(
+    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
+                        isExpanded: true,
+                        iconSize: 36,
+                        iconEnabledColor: Colors.blue,
+                        value: Value,
+                        hint: Text("1"),
+
+                        items: [
+                          DropdownMenuItem(
+                            child: Text(" 1"),
+                            value: "1",
                           ),
+                          DropdownMenuItem(
+                            child: Text(" 2"),
+                            value: "2",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 3"),
+                            value: "3",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 4"),
+                            value: "4",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 5"),
+                            value: "5",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 6"),
+                            value: "6",
+                          ),
+                        ],
+                        onChanged: (String? value) => setState(() {
+                              setValue(value);
+                              print(getValue());
+                            }), 
+                            )
+                          ),
+                       
                         ],
                       ),
                     ],
@@ -243,22 +388,50 @@ class _PlayersNameState extends State<PlayersName> {
                               child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Text(
-                              "From 1 - 6",
-                              style: TextStyle(color: Darkblue),
+                              "From 1 - 6 :",
+                              style: TextStyle(color: Colors.blueAccent, fontSize: 14),
                             ),
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                controller: postion5,
-                                decoration: InputDecoration(
-                                  hintText: "Type Number from 1 to 6",
-                                ),
-                              ),
-                            ),
+                           Expanded(
+    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
+                        isExpanded: true,
+                        iconSize: 36,
+                        iconEnabledColor: Colors.blue,
+                        value: Value,
+                        hint: Text("1"),
+
+                        items: [
+                          DropdownMenuItem(
+                            child: Text(" 1"),
+                            value: "1",
                           ),
+                          DropdownMenuItem(
+                            child: Text(" 2"),
+                            value: "2",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 3"),
+                            value: "3",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 4"),
+                            value: "4",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 5"),
+                            value: "5",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 6"),
+                            value: "6",
+                          ),
+                        ],
+                        onChanged: (String? value) => setState(() {
+                              setValue(value);
+                              print(getValue());
+                            }), 
+                            )
+                            )
                         ],
                       ),
                     ],
@@ -283,21 +456,49 @@ class _PlayersNameState extends State<PlayersName> {
                               child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Text(
-                              "From 1 - 6",
-                              style: TextStyle(color: Darkblue),
+                               "From 1 - 6 :",
+                              style: TextStyle(color: Colors.blueAccent, fontSize: 1),
                             ),
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                controller: postion6,
-                                decoration: InputDecoration(
-                                  hintText: "Type Number from 1 to 6",
-                                ),
-                              ),
-                            ),
+                           Expanded(
+    child: DropdownButton( style: Theme.of(context).textTheme.headline6,
+                        isExpanded: true,
+                        iconSize: 36,
+                        iconEnabledColor: Colors.blue,
+                        value: Value,
+                        hint: Text("1"),
+
+                        items: [
+                          DropdownMenuItem(
+                            child: Text(" 1"),
+                            value: "1",
+                          ),
+                          DropdownMenuItem(
+                            child: Text(" 2"),
+                            value: "2",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 3"),
+                            value: "3",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 4"),
+                            value: "4",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 5"),
+                            value: "5",
+                          ),
+                              DropdownMenuItem(
+                            child: Text(" 6"),
+                            value: "6",
+                          ),
+                        ],
+                        onChanged: (String? value) => setState(() {
+                              setValue(value);
+                              print(getValue());
+                            }), 
+                            )
                           ),
                         ],
                       ),
@@ -327,14 +528,14 @@ class _PlayersNameState extends State<PlayersName> {
                                 child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 80.0),
+                                  padding: const EdgeInsets.only(top: 70.0),
                                   child: Text("Are you sure ?",style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 24, color: Colors.blueAccent,
                                     fontWeight: FontWeight.bold
                                   ),),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 25.0,left: 40.0),
+                                  padding: const EdgeInsets.only(top: 20.0,left: 40.0),
                                   child: Row(
                                     children: [
                                       MaterialButton(
@@ -342,7 +543,7 @@ class _PlayersNameState extends State<PlayersName> {
                                          Get.back();
                                         },
                                         child: Text("Cancel",style: TextStyle(
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.bold, color: Colors.redAccent,
                                           fontSize: 24,
                                         ),),
                                         height: 50,
@@ -383,10 +584,10 @@ class _PlayersNameState extends State<PlayersName> {
                       });
                 },
                 child: Container(
-                  height: 80,
+                  height: 60,
                   width: 200,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.blueAccent,
                       borderRadius: BorderRadius.circular(40),
                       border: Border.all(color: Darkblue),
                       boxShadow: [
@@ -399,7 +600,7 @@ class _PlayersNameState extends State<PlayersName> {
                   child: Center(
                     child: isAccept==true ? CircularProgressIndicator() : Text(
                       "Finish",
-                      style: GoogleFonts.roboto(
+                      style: GoogleFonts.roboto(color: Theme.of(context).secondaryHeaderColor,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),

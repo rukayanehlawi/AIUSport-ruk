@@ -4,6 +4,7 @@ import 'package:aiusport/sqldb.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../option.dart';
 import '../your_team/your_team.dart';
 
 class PlaneScreen extends StatefulWidget {
@@ -31,9 +32,25 @@ class _PlaneScreenState extends State<PlaneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Your team"),
-        automaticallyImplyLeading: false,
-      ),
+          title: Text("Create a team"),
+          titleTextStyle: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+            
+          //automaticallyImplyLeading: false,
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
+          actions: [
+            IconButton(
+                onPressed: () => Get.to(Option()),
+                icon: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).iconTheme.color,
+                ))
+          ],
+        ),
+      
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -57,7 +74,7 @@ class _PlaneScreenState extends State<PlaneScreen> {
                 return Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: const EdgeInsets.only(top: 1.0),
                       child: Container(
                         child: Center(
                           child: Text(
@@ -254,7 +271,7 @@ class _PlaneScreenState extends State<PlaneScreen> {
                   ),
                 ),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-                height: 70,
+                height: 60,
                 minWidth: 120,
 
               ),

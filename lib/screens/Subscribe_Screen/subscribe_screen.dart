@@ -1,4 +1,5 @@
 import 'package:aiusport/constant.dart';
+import 'package:aiusport/moudles/homescreen.dart';
 import 'package:aiusport/screens/staduim_reservation/staduim_reservation.dart';
 import 'package:aiusport/screens/subscribe_gym_screen/subscribe_gym_screen.dart';
 import 'package:aiusport/widget/custom_dialog.dart';
@@ -36,15 +37,21 @@ class _SubsribeScreenState extends State<SubsribeScreen> {
     bool isSwim =false;
     return Center(
       child: Scaffold(
-        appBar: AppBar(
+     appBar: AppBar(
           title: Text("Subscribe"),
-          automaticallyImplyLeading: false,
+          titleTextStyle: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
           actions: [
+
             IconButton(
-                onPressed: () => Get.to(Option()),
+                onPressed: () => Get.to(HomeScreen()),
                 icon: Icon(
                   Icons.menu,
-                  color: Colors.black,
+                  color: Theme.of(context).iconTheme.color,
                 ))
           ],
         ),

@@ -45,6 +45,8 @@ dependencies:
   
   switcher: ^1.0.0
   xlive_switch: ^1.0.5
+  toggle_switch: ^2.0.1
+  font_awesome_flutter: ^10.1.0
   
  
 
@@ -88,6 +90,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/countries/
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

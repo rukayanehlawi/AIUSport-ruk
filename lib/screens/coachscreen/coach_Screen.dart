@@ -1,3 +1,4 @@
+import 'package:aiusport/moudles/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../moudles/option/option.dart';
@@ -17,13 +18,22 @@ class _CoachScreenState extends State<CoachScreen> {
   Widget build(BuildContext context) {
     return Center(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Coach"),
-          automaticallyImplyLeading: false,
+       appBar: AppBar(
+          title: Text("Coaches"),
+          titleTextStyle: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
           actions: [
-            IconButton(onPressed: ()=>Get.to(Option()), 
-            icon: Icon(Icons.menu,
-            color: Theme.of(context).primaryColor,))
+
+            IconButton(
+                onPressed: () => Get.to(HomeScreen()),
+                icon: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).iconTheme.color,
+                ))
           ],
         ),
 

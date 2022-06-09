@@ -1,6 +1,9 @@
 import 'package:aiusport/moudles/coach_page/coachlist.dart';
+import 'package:aiusport/moudles/option/option.dart';
+import 'package:aiusport/screens/coachscreen/coach_Screen.dart';
 import 'package:aiusport/widget/CardCoach.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CoachListScreen extends StatelessWidget {
   final String typeCoach;
@@ -9,10 +12,24 @@ class CoachListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text("CoachList",textAlign: TextAlign.center,)),
-        automaticallyImplyLeading: false,
-      ),
+    appBar: AppBar(
+          title: Text("Coaches list"),
+          titleTextStyle: const TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w900,),
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor:Theme.of(context).primaryColor,
+          actions: [
+
+            IconButton(
+                onPressed: () => Get.to(CoachScreen()),
+                icon: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).iconTheme.color,
+                ))
+          ],
+        ),
         body:ListView.builder(
             itemCount: coachlist.length,
             physics: NeverScrollableScrollPhysics(),
